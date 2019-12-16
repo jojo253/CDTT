@@ -1,0 +1,77 @@
+% \subsection{Training (single context)}
+% The individual doesn't know where is the border, but he can always testing using a certain amount of sand and the result is either 0 or 1. Since then, he knows any amount larger than smallest heap is heap, any amount less than largest non-heap is non-heap. The justified believe is the same with the truth in certain context, while the unjustified believe remains unstable, which vary from 0 to 1.
+
+% The individual has no information what's in between. Still, he may guess the amount close to the right broader is likely to form a heap, without evidence.
+
+% Further more, the believe may even not come from testing, instead they may from communication, which is unjustified but with evidence.
+
+% \subsection{Testing (in unknown context)}
+
+% In the real world, there are infinity many contexts. When an individual is facing an unknown context, his believe in heapness in this new context is the combination of all the knowledge before.
+
+% \[B=\frac{1}{n}\sum_{i=1}^{n}B|c_i\]
+
+% The left border is the maximum amount that always tested to be false, which may be large the minimum true border among context he met before.
+
+% In this model, for an individual, even if he has tested all possible amount in each context he faced before, he will still have a believe curve from 0 to 1. Thus, the degree of believe won't have great difference when change in sand amount is small. And this believe curve is different from truth in any context.
+
+% When asking the individual to tell whether amount between the borders forms a heap, he won't be sure whether it's heap or non-heap.
+
+This model may have a problem that, why is $B|C$ not affected by one's previous knowledge (experience in other context)?
+How to deal with the unstable part in single context believe, to compute general believe?
+
+% Here is a one possible way to solve $p \& \lnot p \neq 0$ problem.
+
+% Let $C_1$ and $C_2$ be two set of contexts, 
+% $$C_{\cap} = C_{1} \cap C_{2},C_1^*= C_1-C_\cap,C_2^*= C_2-C_\cap$$
+% $C_\cap^+$ be subset of $C_\cap$ that $H(A)=1$, $C_\cap^-$ be subset of $C_\cap$ that $H(A)=0$, same for $C_1^*$ and $C_2^*$.
+
+% Let X be $H(A)|C_1$, Y be $\lnot H(A)|C_2$. It's hard to explain how to compute $P(XY)$ directly, still it can be computed by $P(XY)=P(X)*P(Y|X)$.
+
+% The $X$ in $Y|X$ means $H(A)|C_1=1$, so that $C_1^{*-}$ and $C_\cap^-$ and excluded.
+
+% \begin{table}[h]
+% \centering
+% \begin{minipage}[t]{0.48\textwidth}
+% \centering
+% \begin{tabular}{|l|llll|}
+% \hline
+ % & \multicolumn{1}{l|}{$C_2^{*-}$} & \multicolumn{1}{l|}{$C_2^{*+}$} & \multicolumn{1}{l|}{$C_\cap^-$} & $C_\cap^+$ \\ \hline
+% $C_1^{*-}$ & 0 & 0 & 0 & 0 \\ \cline{1-1}
+% $C_1^{*+}$ & 1 & 0 & 1 & 0 \\ \cline{1-1}
+% $C_\cap^-$ & 0 & 0 & 0 & 0 \\ \cline{1-1}
+% $C_\cap^+$ & 1 & 0 & 1 & 0 \\ \hline
+% \bottomrulue
+% \end{tabular}
+% \caption{$X,Y$}
+% \end{minipage}
+% \begin{minipage}[t]{0.48\textwidth}
+% \centering
+% \begin{tabular}{|l|llll|}
+% \hline
+ % & \multicolumn{1}{l|}{$C_2^{*-}$} & \multicolumn{1}{l|}{$C_2^{*+}$} & \multicolumn{1}{l|}{$C_\cap^-$} & $C_\cap^+$ \\ \hline
+% $C_1^{*-}$ &  &  &  &  \\ \cline{1-1}
+% $C_1^{*+}$ & 1 & 0 &  & 0 \\ \cline{1-1}
+% $C_\cap^-$ &  &  &  &  \\ \cline{1-1}
+% $C_\cap^+$ & 1 & 0 &  & 0 \\ \hline
+% \end{tabular}
+% \caption{$X$}
+% \end{minipage}
+% \end{table}
+% \[C_1^*=\{c_{11},c_{12}\ldots c_{1x}\}\]
+% \[C_2^*=\{c_{21},c_{22}\ldots c_{2y}\}\]
+% \[C_\cap=\{c_{\cap 1},c_{\cap 2}\ldots c_{\cap z}\}\]
+
+% \[P(H(A)|C_1=1 \& H(A)|C_2=0)\]
+% \[=P([H(A)|C_1=1] * [H(A)|C_2=0)]^T)\]
+% \[=P
+% \begin{bmatrix}
+	% c_{11}\&\lnot c_{21} & \cdots & c_{11}\&\lnot c_{2y} & c_{11}\&\lnot c_{\cap 1} & \cdots & c_{11}\&\lnot c_{\cap z}  \\
+	% \cdots & \cdots & \cdots & \cdots & \cdots & \cdots \\ 
+	% c_{1x}\&\lnot c_{21} & \cdots & c_{1x}\&\lnot c_{2y} & c_{1x}\&\lnot c_{\cap 1} & \cdots & c_{1x}\&\lnot c_{\cap z}  \\
+	% c_{\cap 1}\&\lnot c_{21} & \cdots & c_{\cap 1}\&\lnot c_{2y} & c_{\cap 1}\&\lnot c_{\cap 1} & \cdots & c_{\cap 1}\&\lnot c_{\cap z}  \\
+	% \cdots & \cdots & \cdots & \cdots & \cdots & \cdots \\ 
+	% c_{\cap z}\&\lnot c_{21} & \cdots & c_{\cap z}\&\lnot c_{2y} & c_{\cap z}\&\lnot c_{\cap z} & \cdots & c_{\cap z}\&\lnot c_{\cap z}  \\
+% \end{bmatrix}
+% \]
+
